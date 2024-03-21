@@ -92,7 +92,8 @@ COPY --from=builder /opt/software /opt/software
 COPY --from=builder /opt/views /opt/views
 
 ADD build.sh /build.sh
-RUN bash /build.sh
+RUN chmod a+x /build.sh \
+&& bash /build.sh
 
 RUN { \
       echo '#!/bin/sh' \
